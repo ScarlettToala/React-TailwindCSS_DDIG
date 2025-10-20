@@ -5,7 +5,7 @@ import ImagenCollage from './components/imagenCollage.jsx'
 import Header from './components/header.jsx'
 import FraseImagen from './components/fraseImagen.jsx'
 
-import logoImage from './assets/logo.jpg'
+import logoImage from './assets/logoo.png'
 import login from './assets/login.png'
 import info from './assets/info.png'
 import tarta2 from './assets/tarta2.jpg'
