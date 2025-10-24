@@ -12,6 +12,8 @@ import tarta2 from './assets/tarta2.jpg'
 import img1 from './assets/tarta.jpg'
 import img2 from './assets/tarta.jpg'
 import img3 from './assets/tarta.jpg'
+import galletas from './assets/galletas.jpg'
+import Destacado from './components/destacarproducto.jsx'
 
 
 function App() {
@@ -27,13 +29,14 @@ function App() {
         />
       </div>
 
-      <div>
+      <div className="bg-amber-300 mt-10 mb-10 p-10"> {/* p-5 para padding interno */}
         <FraseImagen
-        backgroundImage={tarta2}
-        frase="🌸 Amor y paciencia 🌸"
+          backgroundImage={tarta2}
+          frase=" La felicidad no brota de la razón, sino de la imaginación (Immanuel Kant)."
+          className="mt-24 md:mt-32"
         />
-      </div>
 
+      </div>
       <div>
         <ImagenCollage
           image1={img1}
@@ -44,8 +47,17 @@ function App() {
           name3='Mi tercera tarta'
         />
       </div>
+
       <div>
-        <Footer />
+        <Destacado
+          backgroundImage={galletas}
+          frase="Pequeños detalles hacen grandes diferencias"
+        />
+      </div>
+      <div>
+        <Footer 
+        logo={logoImage}
+        />
       </div>
     </>
   )
