@@ -22,7 +22,7 @@ export default function Header({ logoImage, login, info }) {
                 <div className="hidden md:flex space-x-4 items-center">
                     <a href="/login"><img src={login} alt="Login" className="w-8 h-8 cursor-pointer" /></a>
                     <img src={info} alt="Info" className="w-8 h-8 cursor-pointer" />
-                </div>
+                </div> 
 
                 {/* Menú móvil */}
                 <div className="md:hidden ml-auto">

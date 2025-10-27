@@ -1,3 +1,6 @@
+import React from "react";
+import Formulario from "../components/loginForm.jsx"
+
 function Login() {
   return (
     <div>
@@ -7,9 +10,7 @@ function Login() {
       </header>
 
       <div>
-        <form action="POST">
-            
-        </form>
+        <Formulario/>
       </div>
 
     </div>
