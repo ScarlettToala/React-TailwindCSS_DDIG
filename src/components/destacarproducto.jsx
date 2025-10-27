@@ -5,7 +5,7 @@ function Destacado({ backgroundImage, frase }) {
         <div className="w-full bg-[#E9EDC9] flex flex-col items-center px-4 py-8 md:py-12">
             {/* Título principal */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-leckerli font-bold mb-8 text-center text-gray-800 drop-shadow-md">
-                Producto Destacado
+                Lo más vendido
             </h2>
 
             {/* Contenedor de imagen y texto */}
