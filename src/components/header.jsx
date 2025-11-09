@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Header({ logoImage, login, info }) {
+export default function Header({ logoImage, info, onLogout }) {
     return (
         <header className="bg-pink-600 text-white shadow-md px-10 py-7 relative">
             <div className="container mx-auto flex items-center justify-between">
@@ -20,9 +20,15 @@ export default function Header({ logoImage, login, info }) {
 
                 {/* Iconos derecha */}
                 <div className="hidden md:flex space-x-4 items-center">
-                    <a href="/login"><img src={login} alt="Login" className="w-8 h-8 cursor-pointer" /></a>
+                    {/* <a href="/login"><img src={login} alt="Login" className="w-8 h-8 cursor-pointer" /></a>*/}
+                    <button
+                        onClick={onLogout} // ✅ aquí usamos la función que viene de Home
+                        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                    >
+                        Cerrar Sesión
+                    </button>
                     <img src={info} alt="Info" className="w-8 h-8 cursor-pointer" />
-                </div> 
+                </div>
 
                 {/* Menú móvil */}
                 <div className="md:hidden ml-auto">

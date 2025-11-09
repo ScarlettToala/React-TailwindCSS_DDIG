@@ -3,6 +3,7 @@ import Footer from '../components/footer.jsx'
 import ImagenCollage from '../components/imagenCollage.jsx'
 import Header from '../components/header.jsx'
 import FraseImagen from '../components/fraseImagen.jsx'
+import { useNavigate } from "react-router-dom"; // faltaba este import
 
 import logoImage from '../assets/logoo.png'
 import login from '../assets/login.png'
@@ -15,7 +16,14 @@ import galletas from '../assets/galletas.jpg'
 import Destacado from '../components/destacarproducto.jsx'
 
 
-function Home() {
+function Home({ user, setUser }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    setUser(null);
+    navigate("/");
+  };
 
   return (
     <>
@@ -23,8 +31,8 @@ function Home() {
       <div>
         <Header
           logoImage={logoImage}
-          login={login}
           info={info}
+          onLogout={handleLogout} // <---- PASAMOS LA FUNCION
         />
       </div>
 
@@ -54,8 +62,8 @@ function Home() {
         />
       </div>
       <div>
-        <Footer 
-        logo={logoImage}
+        <Footer
+          logo={logoImage}
         />
       </div>
     </>
