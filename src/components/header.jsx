@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import logout from '../assets/cerrarsesion.png';
 
 export default function Header({ logoImage, info, onLogout }) {
     return (
@@ -7,9 +9,24 @@ export default function Header({ logoImage, info, onLogout }) {
 
                 {/* Navegación izquierda */}
                 <nav className="hidden md:flex space-x-6">
-                    <a href="#" className="hover:text-amber-400 transition-colors">Sobre Nosotros</a>
-                    <a href="#" className="hover:text-amber-400 transition-colors">Productos</a>
-                    <a href="#" className="hover:text-amber-400 transition-colors">Servicios</a>
+                    <Link
+                        to="/sobrenosotros"
+                        className="px-3 py-3 text-white rounded-lg font-[Open_Sans] text-lg hover:text-black transition"
+                    >
+                        Sobre Nosotros
+                    </Link>
+                    <Link
+                        to="/productos"
+                        className="px-6 py-3 text-white rounded-lg font-[Open_Sans] text-lg hover:text-black transition"
+                    >
+                        Productos
+                    </Link>
+                    <Link
+                        to="/servicios"
+                        className="px-6 py-3 text-white rounded-lg font-[Open_Sans] text-lg hover:text-black transition"
+                    >
+                        Servicios
+                    </Link>
                 </nav>
 
                 {/* Logo centrado */}
@@ -19,16 +36,29 @@ export default function Header({ logoImage, info, onLogout }) {
 
 
                 {/* Iconos derecha */}
-                <div className="hidden md:flex space-x-4 items-center">
-                    {/* <a href="/login"><img src={login} alt="Login" className="w-8 h-8 cursor-pointer" /></a>*/}
+                <div className="hidden md:flex space-x-6 items-center">
+
                     <button
-                        onClick={onLogout} // ✅ aquí usamos la función que viene de Home
-                        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                        onClick={onLogout}
+                        className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition"
                     >
-                        Cerrar Sesión
+                        <img
+                            src={logout}
+                            alt="LogOut"
+                            className="w-8 h-8"
+                        />
+                        <span className="hover:text-black transition-colors">
+                            Cerrar sesión
+                        </span>
                     </button>
-                    <img src={info} alt="Info" className="w-8 h-8 cursor-pointer" />
+
+                    <img
+                        src={info}
+                        alt="Info"
+                        className="w-8 h-8 cursor-pointer"
+                    />
                 </div>
+
 
                 {/* Menú móvil */}
                 <div className="md:hidden ml-auto">

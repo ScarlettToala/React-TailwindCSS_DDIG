@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import Footer from '../components/footer.jsx'
 import ImagenCollage from '../components/imagenCollage.jsx'
 import Header from '../components/header.jsx'
 import FraseImagen from '../components/fraseImagen.jsx'
-import { useNavigate } from "react-router-dom"; // faltaba este import
+import { useNavigate } from "react-router-dom"; 
 
 import logoImage from '../assets/logoo.png'
-import login from '../assets/login.png'
+
 import info from '../assets/info.png'
 import tarta2 from '../assets/tarta2.jpg'
 import img1 from '../assets/tarta.jpg'

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Footer({ logo }) {
     return (
@@ -7,14 +8,30 @@ function Footer({ logo }) {
 
                 {/* Navegación */}
                 <nav className="flex flex-col md:flex-row md:space-x-6 text-center md:text-left">
-                    <a href="#" className="hover:text-amber-400 transition-colors duration-300">Sobre Nosotros</a>
-                    <a href="#" className="hover:text-amber-400 transition-colors duration-300">Productos</a>
-                    <a href="#" className="hover:text-amber-400 transition-colors duration-300">Servicios</a>
-                    <a href="#" className="hover:text-amber-400 transition-colors duration-300">Contacto</a>
+                    <Link
+                        to="/sobrenosotros"
+                        className="px-3 py-3 text-white rounded-lg font-[Open_Sans] text-lg hover:text-black transition"
+                    >
+                        Sobre Nosotros
+                    </Link>
+                    <Link
+                        to="/productos"
+                        className="px-6 py-3 text-white rounded-lg font-[Open_Sans] text-lg hover:text-black transition"
+                    >
+                        Productos
+                    </Link>
+                    <Link
+                        to="/servicios"
+                        className="px-6 py-3 text-white rounded-lg font-[Open_Sans] text-lg hover:text-black transition"
+                    >
+                        Servicios
+                    </Link>
+
+                    <a href="#" className="hover:text-white font-[Open_Sans] text-lg transition-colors duration-300">Contacto</a>
                 </nav>
 
                 {/* Logo centrado en círculo blanco */}
-                <div className="flex justify-center items-center bg-white rounded-full shadow-lg p-3 md:p-4">
+                <div className="flex justify-center items-center bg-white rounded-full shadow-lg p-5 md:p-5">
                     <img src={logo} alt="Logo" className="w-20 h-20 object-contain" />
                 </div>
 
