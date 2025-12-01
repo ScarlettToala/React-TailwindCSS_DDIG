@@ -56,20 +56,37 @@ function Productos() {
 
       </div>
 
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-6">
         {/*image, name, description1, alergenos */}
         <Producto
-          image= {tarta}
+          image={tarta}
           name="Tarta de Chocolate"
-          description1={"Es una trata de chococolate con cobertura de trufa"}
-          alergenenos={[
+          description1={"Es una tarta de chococolate con cobertura de trufa"}
+          alergenos={[
             { nombre: "Gluten", icono: "img" },
             { nombre: "Leche", icono: "img" }
-          ]} 
+          ]}
         />
 
-        <Producto ></Producto>
-        <Producto ></Producto>
+        <Producto
+          image={volteado}
+          name="Volteado de piña"
+          description1={"Es una tarta piña con bizcocho de vainilla"}
+          alergenos={[
+            { nombre: "Gluten", icono: "img" },
+            { nombre: "Leche", icono: "img" },
+            { nombre: "Fructosa", icono: "img" }
+          ]}
+        ></Producto>
+        <Producto
+          image={tresLeches}
+          name="Tres Leches"
+          description1={"Es un bizcocho mojado con un cobertura de merengue"}
+          alergenos={[
+            { nombre: "Gluten", icono: "img" },
+            { nombre: "Leche", icono: "img" },
+          ]}
+        ></Producto>
         <Producto ></Producto>
       </div>
     </div>
