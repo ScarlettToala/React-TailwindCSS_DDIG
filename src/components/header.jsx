@@ -34,8 +34,8 @@ export default function Header({ logoImage, info, onLogout }) {
                         aria-label="Cerrar sesión"
                         className="flex items-center gap-2 text-white/80 hover:text-white transition cursor-pointer"
                     >
-                        <img src={logout} alt="LogOut" className="w-7 h-7" />
-                        <span className="text-base">Salir</span>
+                        
+                        <span className="text-base">Cerrar sesión</span>
                     </button>
                 </div>
 
