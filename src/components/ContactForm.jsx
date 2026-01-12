@@ -54,6 +54,7 @@ export default function ContactForm() {
                     placeholder="Tu nombre"
                     value={formData.nombre}
                     onChange={handleChange}
+                    aria-required="true"
                     className="border p-2 rounded"
                 />
 
@@ -63,6 +64,7 @@ export default function ContactForm() {
                     placeholder="Tu email"
                     value={formData.email}
                     onChange={handleChange}
+                    aria-required="true"
                     className="border p-2 rounded"
                 />
 
@@ -71,6 +73,7 @@ export default function ContactForm() {
                     placeholder="Tu mensaje"
                     value={formData.mensaje}
                     onChange={handleChange}
+                    aria-required="true"
                     className="border p-2 rounded resize-none"
                     rows="4"
                 />

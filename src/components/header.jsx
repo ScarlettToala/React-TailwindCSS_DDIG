@@ -9,9 +9,10 @@ export default function Header({ logoImage, info, onLogout }) {
         <header className="bg-pink-600 text-white shadow-md px-10 py-7 relative">
             <div className="container mx-auto flex items-center justify-between">
 
-                {/* Navegación izquierda (desktop) */}
-                <nav className="hidden md:flex items-center gap-4 ">
-                    <NavLinks textColor="text-white" textColorHover="hover:text-yellow-300" />
+                {/* Navegación izquierda (desktop)  ARIA*/}
+
+                <nav className="hidden md:flex items-center gap-4 " role="navigation" aria-label="Menú principal">
+                    <NavLinks textColor="text-white" textColorHover="hover:text-white" />
                 </nav>
 
                 {/* Logo centrado */}
@@ -29,6 +30,8 @@ export default function Header({ logoImage, info, onLogout }) {
 
                     <button
                         onClick={onLogout}
+                        /*ARIA*/
+                        aria-label="Cerrar sesión"
                         className="flex items-center gap-2 text-white/80 hover:text-white transition cursor-pointer"
                     >
                         <img src={logout} alt="LogOut" className="w-7 h-7" />
@@ -40,23 +43,33 @@ export default function Header({ logoImage, info, onLogout }) {
                 <button
                     className="md:hidden text-2xl"
                     onClick={() => setMenuAbierto(!menuAbierto)}
+                    /*ARIA*/
+                    aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+                    aria-expanded={menuAbierto}
+                    aria-controls="menu-movil"
                 >
+
                     ☰
                 </button>
             </div>
 
             {/* Menú móvil */}
             {menuAbierto && (
-                <nav className="absolute top-full left-6 mt-3 w-48 bg-white text-pink-600 rounded-xl shadow-lg p-4 flex flex-col gap-3 md:hidden z-50">
-                    <NavLinks onClick={() => setMenuAbierto(false)} 
-                    textColor="text-pink-600"
-                    textColorHover="hover:text-black"
-                        />
-                    
+                <nav className="absolute top-full left-6 mt-3 w-48 bg-white text-pink-600 rounded-xl shadow-lg p-4 flex flex-col gap-3 md:hidden z-50"
+                    /*ARIA*/ 
+                    role="menu"
+                    aria-label="Menú móvil"
+                >
+                    <NavLinks onClick={() => setMenuAbierto(false)}
+                        textColor="text-pink-600"
+                        textColorHover="hover:text-black"
+                    />
+
                     <hr />
 
                     <button
                         onClick={onLogout}
+                        aria-label="Cerrar sesión"
                         className="text-left hover:text-black transition font-[Open_Sans]"
                     >
                         Cerrar sesión

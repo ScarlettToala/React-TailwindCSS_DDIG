@@ -1,23 +1,21 @@
-
 import Header from "../components/header.jsx";
 import { useNavigate } from "react-router-dom";
-import Producto from "../components/productoItem.jsx"
-import Audio from "../components/AudioPlayer.jsx"
-import Video from "../components/VideoPlayer.jsx"
+import Producto from "../components/productoItem.jsx";
+import Audio from "../components/AudioPlayer.jsx";
+import Video from "../components/VideoPlayer.jsx";
 
-/*Importaciones de recursos*/
+/* Importaciones de recursos */
 import tarta from "../assets/img/tartaDeChocolate.webp";
-import tresLeches from "../assets/img//tresLeches.webp";
+import tresLeches from "../assets/img/tresLeches.webp";
 import volteado from "../assets/img/volteadoDePiña.webp";
-import logoImage from '../assets/logoo.png'
-import info from '../assets/info.png'
-import audioMp3 from '../assets/audio/AudioMC.mp3'
-import audioOgg from '../assets/audio/AudioMC.ogg'
-import videoMp4 from '../assets/video/Video.mp4'
-import videoWebm from '../assets/video/Video.webm'
+import logoImage from '../assets/logoo.png';
+import info from '../assets/info.png';
+import audioMp3 from '../assets/audio/AudioMC.mp3';
+import audioOgg from '../assets/audio/AudioMC.ogg';
+import videoMp4 from '../assets/video/Video.mp4';
+import videoWebm from '../assets/video/Video.webm';
 
-
-function Productos() {
+function Productos({ setUser }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -26,107 +24,95 @@ function Productos() {
     navigate("/");
   };
 
-    const colores = {
-      verde: { backgroundColor: "#c2cf70" }
-  };
-
   return (
-
-    <div>
+    <div className="bg-amber-50 min-h-screen">
 
       <Header
         logoImage={logoImage}
         info={info}
-        onLogout={handleLogout} // <---- PASAMOS LA FUNCION
+        onLogout={handleLogout}
       />
 
-      <div className="bg-[#c2cf70] mt-10 mb-10 p-10 rounded-xl shadow-lg">
+      {/* Sección Multimedia */}
+      <section className="bg-[#c2cf70] mt-10 mb-10 p-8 md:p-12 rounded-xl shadow-lg max-w-6xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+          Ejemplos de Multimedia
+        </h1>
 
-        <h1 className="text-3xl font-bold text-center mb-6">Ejemplos de múltimedia</h1>
-
-        {/* Contenedor de imágenes lado a lado */}
-        <div className="flex justify-center items-center gap-6">
-
-          {/* Imagen simple */}
+        {/* Contenedor de imágenes responsivo */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
           <img
             src={tarta}
             alt="Tarta de Chocolate"
             loading="lazy"
-            className="w-[250px] h-auto rounded-lg shadow-md object-cover hover:scale-105 transition-transform duration-300"
+            className="w-64 h-auto rounded-lg object-cover hover:scale-105 transition-transform duration-300"
           />
 
-          {/* Imagen con picture */}
           <picture>
             <source srcSet={tresLeches} type="image/webp" />
             <img
               src={volteado}
               alt="Volteado de Piña"
-              className="w-[250px] h-auto rounded-lg shadow-md object-cover hover:scale-105 transition-transform duration-300"
+              className="w-64 h-auto rounded-lg object-cover hover:scale-105 transition-transform duration-300"
             />
           </picture>
-
         </div>
+      </section>
 
-      </div>
+      {/* Sección Productos */}
+      <section id="Productos" className="max-w-6xl mx-auto px-4 md:px-8 py-12">
+        <h1 style={{ fontFamily: '"Leckerli One", cursive' }} className="text-4xl md:text-5xl text-center mb-10 text-gray-800">
+          Productos
+        </h1>
 
-    <div id="Productos">
-        <h1 style={{ fontFamily: '"Leckerli One", cursive' }} className="text-4xl">Productos</h1>
-      <div className="grid grid-cols-2 gap-0 p-6">
-        {/*image, name, description1, alergenos */}
-        <Producto
-          image={tarta}
-          name="Tarta de Chocolate"
-          description1={"Es una tarta de chococolate con cobertura de trufa"}
-          alergenos={[
-            { nombre: "Gluten", icono: "img" },
-            { nombre: "Leche", icono: "img" }
-          ]}
-          color="amarillo"
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+          <Producto
+            image={tarta}
+            name="Tarta de Chocolate"
+            description1="Deliciosa tarta de chocolate con cobertura de trufa"
+            alergenos={[{ nombre: "Gluten" }, { nombre: "Leche" }]}
+            colorFondo="amarillo"
+          />
+
+          <Producto
+            image={volteado}
+            name="Volteado de Piña"
+            description1="Bizcocho esponjoso de piña con cobertura suave"
+            alergenos={[{ nombre: "Gluten" }, { nombre: "Leche" }]}
+            colorFondo="rosa"
+          />
+
+          <Producto
+            image={tresLeches}
+            name="Tres Leches"
+            description1="Es un bizcocho mojado con cobertura de merengue"
+            alergenos={[
+              { nombre: "Gluten", icono: "img" },
+              { nombre: "Leche", icono: "img" },
+            ]}
+            colorFondo="verde"
+          />
+        </div>
+      </section>
+
+      {/* Sección Multimedia de Audio y Video */}
+      <section className="max-w-6xl mx-auto px-4 md:px-8 py-12 flex flex-col md:flex-row gap-8 md:gap-12 justify-center items-start">
+        <Audio
+          nameAudio="Audio Navideño"
+          mp3={audioMp3}
+          ogg={audioOgg}
         />
 
-        <Producto
-          image={volteado}
-          name="Volteado de piña"
-          description1={"Es una tarta piña con bizcocho de vainilla"}
-          alergenos={[
-            { nombre: "Gluten", icono: "img" },
-            { nombre: "Leche", icono: "img" },
-            { nombre: "Fructosa", icono: "img" }
-          ]}
-          color="rosa"
-        ></Producto>
-        <Producto
-          image={tresLeches}
-          name="Tres Leches"
-          description1={"Es un bizcocho mojado con un cobertura de merengue"}
-          alergenos={[
-            { nombre: "Gluten", icono: "img" },
-            { nombre: "Leche", icono: "img" },
-          ]}
-          color="rosa"
-        ></Producto>
-        <Producto
-          color="amarillo"></Producto>
-      </div>
+        <Video
+          mp4={videoMp4}
+          webm={videoWebm}
+          titulo="Pastel de unicornio"
+          usuario="Silpaza"
+          className="w-full md:w-96"
+        />
+      </section>
 
-      </div>
-
-<div  className="flex flex-row gap-6 justify-center items-start py-10">
-      <Audio
-      nameAudio="Audio Navideño"
-      mp3={audioMp3} 
-      ogg={audioOgg}
-       
-      ></Audio>
-
-    <Video 
-    mp4={videoMp4}
-    webm={videoWebm}
-    titulo="Pastel de unicornio"
-    usuario="Silpaza"
-     className="w-80" 
-    />
-    </div>
     </div>
   );
 }
