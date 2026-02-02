@@ -30,7 +30,7 @@ function Destacado({ backgroundImage, frase }) {
                     </p>
                     <a
                         href="#"
-                        className="inline-block px-6 py-2 bg-pink-400 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition-colors duration-300"
+                        className="inline-block px-6 py-2 bg-[#AE043D] text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition-colors duration-300"
                     >
                         Ver más
                     </a>

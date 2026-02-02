@@ -4,14 +4,14 @@ import Header from '../components/header.jsx'
 import FraseImagen from '../components/fraseImagen.jsx'
 import { useNavigate } from "react-router-dom"; 
 
-import logoImage from '../assets/logoo.png'
+import logoImage from '../assets/logoo.webp'
 
-import info from '../assets/info.png'
-import tarta2 from '../assets/tarta2.jpg'
-import img1 from '../assets/tarta.jpg'
-import img2 from '../assets/tarta.jpg'
-import img3 from '../assets/tarta.jpg'
-import galletas from '../assets/galletas.jpg'
+import info from '../assets/info.webp'
+import tarta2 from '../assets/tarta2.webp'
+import img1 from '../assets/tarta.webp'
+import img2 from '../assets/tarta.webp'
+import img3 from '../assets/tarta.webp'
+import galletas from '../assets/galletas.webp'
 import Destacado from '../components/destacarproducto.jsx'
 
 
@@ -27,6 +27,7 @@ function Home({ user, setUser }) {
   return (
     <>
 
+      <h1 class="absolute w-px h-px overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0"> Silpaza</h1>
       <div>
         <Header
           logoImage={logoImage}

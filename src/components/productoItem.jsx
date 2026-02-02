@@ -7,35 +7,35 @@ function Producto({ image, name, description1, alergenos, colorFondo = "blanco" 
         amarillo: {
             fondo: "#f8df7e",
             titulo: "#3b2f0b",
-            descripcion: "#4b3b00",
-            alergenos: "#d90429",
-            pedido: "#007f5f"
+            FontColor: "#4b3b00",
+            alergenos: "#7C1513",
+            pedido: "#014370"
         },
         rosa: {
-            fondo: "#ff6b81",
+            fondo: "#A2064C",
             titulo: "#ffffff",
-            descripcion: "#f1f1f1",
-            alergenos: "#ffd166",
-            pedido: "#000000"
+            FontColor: "#f1f1f1",
+            alergenos: "#F8F4ED",
+            pedido: "#DDFFDC"
         },
         marron: {
-            fondo: "#b4764f",
+            fondo: "#7F411A",
             titulo: "#ffffff",
-            descripcion: "#f5f5f5",
-            alergenos: "#ffb703",
+            FontColor: "#f5f5f5",
+            alergenos: "#FDF3D8",
             pedido: "#000000"
         },
         verde: {
             fondo: "#c2cf70",
             titulo: "#1f2f0a",
-            descripcion: "#3b4b0a",
-            alergenos: "#d90429",
+            FontColor: "#3b4b0a",
+            alergenos: "#4B044E",
             pedido: "#003300"
         }
     };
 
     // Seleccionamos los estilos según el colorFondo
-    const { fondo, titulo, descripcion, alergenos: colorAlergenos, pedido } = estilos[colorFondo] || estilos.blanco;
+    const { fondo, titulo, FontColor, alt ,alergenos: colorAlergenos, pedido } = estilos[colorFondo] || estilos.blanco;
 
     return (
         <div
@@ -46,7 +46,7 @@ function Producto({ image, name, description1, alergenos, colorFondo = "blanco" 
 
                 <img
                     src={image}
-                    alt={name}
+                    alt={alt || name}
                     className="w-full h-64 object-cover rounded-lg"
                 />
 
@@ -55,7 +55,7 @@ function Producto({ image, name, description1, alergenos, colorFondo = "blanco" 
                         {name}
                     </h3>
 
-                    <p className="text-sm leading-relaxed mb-4" style={{ color: descripcion }}>
+                    <p className="text-sm leading-relaxed mb-4" style={{ color: FontColor }}>
                         {description1}
                     </p>
 

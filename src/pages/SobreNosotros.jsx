@@ -4,8 +4,8 @@ import ContactForm from "../components/ContactForm";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import logoImage from '../assets/logoo.png';
-import info from '../assets/info.png';
+import logoImage from '../assets/logoo.webp';
+import info from '../assets/info.webp';
 
 function SobreNosotros({ user, setUser }) {
   const navigate = useNavigate();
@@ -72,16 +72,18 @@ function SobreNosotros({ user, setUser }) {
           <h2 id="titulo-useref" className="text-xl font-semibold text-blue-600 text-center">
             Ejemplo useRef
           </h2>
-
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder="Escribe aquí"
-            aria-label="Campo de texto para ejemplo useRef"
-            className="w-full border border-blue-300 rounded-lg px-4 py-3
+          <form action="GET">
+            <label>Escribe un ejemplo de texto
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder="Escribe aquí"
+              aria-label="Campo de texto para ejemplo useRef"
+              className="w-full border border-blue-300 rounded-lg px-4 py-3
                        focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-
+            />
+            </label>
+          </form>
           <button
             onClick={ponerFocus}
             className="bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg transition active:scale-95"

@@ -8,8 +8,8 @@ import Video from "../components/VideoPlayer.jsx";
 import tarta from "../assets/img/tartaDeChocolate.webp";
 import tresLeches from "../assets/img/tresLeches.webp";
 import volteado from "../assets/img/volteadoDePiña.webp";
-import logoImage from '../assets/logoo.png';
-import info from '../assets/info.png';
+import logoImage from '../assets/logoo.webp';
+import info from '../assets/info.webp';
 import audioMp3 from '../assets/audio/AudioMC.mp3';
 import audioOgg from '../assets/audio/AudioMC.ogg';
 import videoMp4 from '../assets/video/Video.mp4';
@@ -61,14 +61,15 @@ function Productos({ setUser }) {
 
       {/* Sección Productos */}
       <section id="Productos" className="max-w-6xl mx-auto px-4 md:px-8 py-12">
-        <h1 style={{ fontFamily: '"Leckerli One", cursive' }} className="text-4xl md:text-5xl text-center mb-10 text-gray-800">
+        <h2 style={{ fontFamily: '"Leckerli One", cursive' }} className="text-4xl md:text-5xl text-center mb-10 text-gray-800">
           Productos
-        </h1>
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
           <Producto
             image={tarta}
+            alt="Es una trata de chocolate realizada con productos de kilometraje 0."
             name="Tarta de Chocolate"
             description1="Deliciosa tarta de chocolate con cobertura de trufa"
             alergenos={[{ nombre: "Gluten" }, { nombre: "Leche" }]}
@@ -76,6 +77,7 @@ function Productos({ setUser }) {
           />
 
           <Producto
+            alt="Tarta de piña o volteado de piña es un bizcocho con pociones de la fruta."
             image={volteado}
             name="Volteado de Piña"
             description1="Bizcocho esponjoso de piña con cobertura suave"
@@ -84,6 +86,7 @@ function Productos({ setUser }) {
           />
 
           <Producto
+          alt="Es un dulce que consiste en un bizcocho mojado en una mezcla dulce y de cobertura de merengue."
             image={tresLeches}
             name="Tres Leches"
             description1="Es un bizcocho mojado con cobertura de merengue"

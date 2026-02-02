@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import HeaderLogIn from "../components/headerLogIn";
 import Footer from "../components/footer";
-import logoImage from '../assets/logoo.png';
+import logoImage from '../assets/logoo.webp';
 
 
 const Login = ({ setUser }) => {

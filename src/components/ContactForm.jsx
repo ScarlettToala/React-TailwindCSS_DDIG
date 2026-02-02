@@ -48,36 +48,49 @@ export default function ContactForm() {
             </h2>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <label htmlFor="text">
+                    Nombre: 
+                </label>
                 <input
                     type="text"
                     name="nombre"
+                    aria-label="nombre"
                     placeholder="Tu nombre"
                     value={formData.nombre}
                     onChange={handleChange}
                     aria-required="true"
                     className="border p-2 rounded"
                 />
+                
 
+                <label htmlFor="email">
+                    Email:
+                </label>
                 <input
                     type="email"
                     name="email"
+                    aria-label="Email"
                     placeholder="Tu email"
                     value={formData.email}
                     onChange={handleChange}
                     aria-required="true"
                     className="border p-2 rounded"
                 />
-
+                
+                <label htmlFor="mensaje">
+                    Mensaje:
+                </label>
                 <textarea
                     name="mensaje"
                     placeholder="Tu mensaje"
+                    aria-label="Mensaje"
                     value={formData.mensaje}
                     onChange={handleChange}
                     aria-required="true"
                     className="border p-2 rounded resize-none"
                     rows="4"
                 />
-
+                
                 <button
                     type="submit"
                     className="bg-pink-600 text-white py-2 rounded

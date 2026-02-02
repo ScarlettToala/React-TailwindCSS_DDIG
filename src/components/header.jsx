@@ -1,25 +1,28 @@
 import { useState } from "react";
 import NavLinks from "./NavLinks";
-import logout from "../assets/cerrarsesion.png";
+
 
 export default function Header({ logoImage, info, onLogout }) {
     const [menuAbierto, setMenuAbierto] = useState(false);
 
     return (
-        <header className="bg-pink-600 text-white shadow-md px-10 py-7 relative">
+        <header className="bg-[#F480AD] text-white shadow-md px-10 py-7 relative">
             <div className="container mx-auto flex items-center justify-between">
 
                 {/* Navegación izquierda (desktop)  ARIA*/}
 
-                <nav className="hidden md:flex items-center gap-4 " role="navigation" aria-label="Menú principal">
-                    <NavLinks textColor="text-white" textColorHover="hover:text-white" />
+                <nav 
+                    className="hidden md:flex items-center gap-4 " 
+                    role="navigation" 
+                    aria-label="Menú principal">
+                    <NavLinks textColor="text-[#0C0808]" textColorHover="hover:text-black" />
                 </nav>
 
                 {/* Logo centrado */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 bg-white rounded-full shadow-lg p-3">
                     <img
                         src={logoImage}
-                        alt="Logo"
+                        alt="Logo Corporativo de Silpaza"
                         className="w-20 h-20 object-contain rounded-full"
                     />
                 </div>
@@ -32,10 +35,13 @@ export default function Header({ logoImage, info, onLogout }) {
                         onClick={onLogout}
                         /*ARIA*/
                         aria-label="Cerrar sesión"
-                        className="flex items-center gap-2 text-white/80 hover:text-white transition cursor-pointer"
+                        className="flex items-center gap-2 text-[#0C0808] transition cursor-pointer"
                     >
                         
-                        <span className="text-base">Cerrar sesión</span>
+                        <span className="relative text-[#0C0808] font-[Open_Sans] text-lg
+                                    after:absolute after:left-0 after:bottom-0 after:h-[2px]
+                                    after:w-0 after:bg-white after:transition-all
+                                    hover:after:w-full transition">Cerrar sesión</span>
                     </button>
                 </div>
 
@@ -57,7 +63,7 @@ export default function Header({ logoImage, info, onLogout }) {
             {menuAbierto && (
                 <nav className="absolute top-full left-6 mt-3 w-48 bg-white text-pink-600 rounded-xl shadow-lg p-4 flex flex-col gap-3 md:hidden z-50"
                     /*ARIA*/ 
-                    role="menu"
+                    
                     aria-label="Menú móvil"
                 >
                     <NavLinks onClick={() => setMenuAbierto(false)}
