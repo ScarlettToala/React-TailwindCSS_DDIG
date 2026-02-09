@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
 import Footer from '../components/footer.jsx'
 import ImagenCollage from '../components/imagenCollage.jsx'
 import Header from '../components/header.jsx'
 import FraseImagen from '../components/fraseImagen.jsx'
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 import logoImage from '../assets/logoo.webp'
 
@@ -17,12 +18,37 @@ import Destacado from '../components/destacarproducto.jsx'
 
 function Home({ user, setUser }) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
     setUser(null);
     navigate("/");
   };
+
+  const images = [logoImage, info, tarta2, img1, img2, img3, galletas];
+
+  useEffect(() => {
+    let loadedCount = 0;
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount += 1;
+        if (loadedCount === images.length) {
+          setLoading(false); // todas las imágenes cargadas
+        }
+      };
+    });
+  }, []);
+   if (loading) {
+    // Esto se mostrará mientras se cargan las imágenes
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl font-bold">Cargando contenido...</p>
+      </div>
+    );
+  }
 
   return (
     <>

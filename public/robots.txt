@@ -1,6 +1,13 @@
+# Arxiu: robots.txt 
+# Regla 1: Per a TOTS els robots (*) 
 User-agent: *
 Disallow: /login
 Disallow: /servicios
 Allow: /home
 Allow: /sobrenosotros
 Allow: /productos
+# Regla 2: Específic per al bot de Google (Googlebot) 
+User-agent: Googlebot 
+Disallow: /cerca-interna/ 
+# Indiquem on està el mapa 
+Sitemap: https://www.localhost:5173.com/public/sitemap.xml
