@@ -54,13 +54,14 @@ function Home({ user, setUser }) {
     <>
 
       <h1 class="absolute w-px h-px overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0"> Silpaza</h1>
-      <div>
+      
         <Header
           logoImage={logoImage}
           info={info}
           onLogout={handleLogout} // <---- PASAMOS LA FUNCION
+          user={user}
         />
-      </div>
+     
 
       <div className="bg-amber-300 mt-10 mb-10 p-10"> {/* p-5 para padding interno */}
         <FraseImagen
@@ -70,7 +71,7 @@ function Home({ user, setUser }) {
         />
 
       </div>
-      <div>
+
         <ImagenCollage
           image1={img1}
           name1='Mi primera tarta'
@@ -79,19 +80,17 @@ function Home({ user, setUser }) {
           image3={img3}
           name3='Mi tercera tarta'
         />
-      </div>
 
-      <div>
+
         <Destacado
           backgroundImage={galletas}
           frase="Pequeños detalles hacen grandes diferencias"
         />
-      </div>
-      <div>
+
         <Footer
           logo={logoImage}
         />
-      </div>
+      
     </>
   )
 }

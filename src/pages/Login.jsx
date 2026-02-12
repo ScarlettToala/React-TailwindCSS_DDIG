@@ -42,6 +42,8 @@ const Login = ({ setUser }) => {
       {/* HEADER */}
       <HeaderLogIn logoImage={logoImage} />
 
+      <h1 class="absolute w-px h-px overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0"> Silpaza</h1>
+
       {/* CONTENEDOR CENTRADO */}
       <div className="flex flex-1 items-center justify-center px-4 bg-[#fdfaf3]">
 
@@ -51,38 +53,36 @@ const Login = ({ setUser }) => {
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-
             {/* EMAIL */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
+              <label className="block text-gray-700 font-semibold mb-1" htmlFor="email">
                 Email
               </label>
               <input
                 type="email"
+                id="email"
                 name="email"
+                placeholder="Escriba su email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
               />
-            </div>
+            
 
             {/* CONTRASEÑA */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
+              <label className="block text-gray-700 font-semibold mb-1"htmlFor="password">
                 Contraseña
               </label>
               <input
                 type="password"
+                id="password" 
                 name="password"
+                placeholder="Escriba su contraseña"
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg  focus:outline-none focus:ring-2 bg-white focus:ring-[#A4133C]"
               />
-            </div>
 
             {/* ERROR */}
             {error && (
@@ -114,7 +114,7 @@ const Login = ({ setUser }) => {
             ¿No tienes cuenta?{" "}
             <Link
               to="/register"
-              className="text-[#A4133C] font-semibold hover:underline"
+              className="text-[#770e2b] font-semibold hover:underline"
             >
               Regístrate aquí
             </Link>

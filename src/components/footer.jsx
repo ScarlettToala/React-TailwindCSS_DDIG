@@ -23,7 +23,7 @@ function Footer({ logo }) {
   }
 
   return (
-    <footer className="w-full bg-[#F480AD] text-black py-8 px-4">
+    <footer className=" bg-[#F480AD] text-black py-8 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
 
         {/* Navegación */}

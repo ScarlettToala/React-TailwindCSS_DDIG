@@ -27,12 +27,16 @@ function SobreNosotros({ user, setUser }) {
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 py-12 px-4 max-w-screen-lg mx-auto">
-      <Header
+    <>
+    <div className="bg-amber-50">
+          <Header
         logoImage={logoImage}
         info={info}
         onLogout={handleLogout}
+        user={user}
       />
+    
+    <div className="min-h-screen py-12 px-4 max-w-screen-lg mx-auto">
 
       {/* Título */}
       <h1 className="text-3xl md:text-4xl font-bold text-center text-amber-600 mb-8">
@@ -80,7 +84,7 @@ function SobreNosotros({ user, setUser }) {
               placeholder="Escribe aquí"
               aria-label="Campo de texto para ejemplo useRef"
               className="w-full border border-blue-300 rounded-lg px-4 py-3
-                       focus:outline-none focus:ring-2 focus:ring-blue-400"
+              focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             </label>
           </form>
@@ -99,8 +103,11 @@ function SobreNosotros({ user, setUser }) {
         <ContactForm />
       </div>
 
-      <Footer logo={logoImage} />
+      
     </div>
+    <Footer logo={logoImage} />
+    </div>
+    </>
   );
 }
 

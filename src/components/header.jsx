@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 
-export default function Header({ logoImage, info, onLogout }) {
+export default function Header({ logoImage, info, onLogout, user }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +49,7 @@ export default function Header({ logoImage, info, onLogout }) {
       <div className="container mx-auto flex items-center justify-between">
 
         {/* Navegación izquierda (desktop) */}
-        <nav className="hidden md:flex items-center gap-4" role="navigation" aria-label="Menú principal">
+        <nav className="hidden md:flex items-center gap-8" role="navigation" aria-label="Menú principal">
           <NavLinks textColor="text-[#0C0808]" textColorHover="hover:text-black" />
         </nav>
 
@@ -64,6 +65,8 @@ export default function Header({ logoImage, info, onLogout }) {
         {/* Iconos derecha (desktop) */}
         <div className="hidden md:flex space-x-6 items-center">
           <img src={info} alt="Info" className="w-8 h-8 cursor-pointer" />
+          
+          {user ? (
           <button
             onClick={handleLogoutConfirm} // <--- Usamos la función con confirmación
             aria-label="Cerrar sesión"
@@ -74,6 +77,10 @@ export default function Header({ logoImage, info, onLogout }) {
                             after:w-0 after:bg-white after:transition-all
                             hover:after:w-full transition">Cerrar sesión</span>
           </button>
+          ) : (
+          <Link to="/login" className="hover:font-bold transition">Iniciar sesión</Link>
+          )
+          }
         </div>
 
         {/* Botón hamburguesa (mobile) */}

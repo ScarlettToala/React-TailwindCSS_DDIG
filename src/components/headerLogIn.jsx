@@ -1,20 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function HeaderLogIn({ logoImage}) {
+export default function HeaderLogIn({ logoImage }) {
     return (
-        <header className="bg-pink-600 text-white shadow-md px-10 py-20 relative">
+        <header className="bg-[#F480AD] text-black shadow-md px-6 py-6 relative ">
             <div className="container mx-auto flex items-center justify-between">
 
-                <a href="/welcome">Volver</a>
+                <Link
+                    to="/welcome"
+                    className="relative font-[Open_Sans] text-lg
+                                    after:absolute after:left-0 after:bottom-0 after:h-[2px]
+                                    after:w-0 after:bg-white after:transition-all
+                                    hover:after:w-full transition"
+                >
+                    Welcome 
+                </Link>
+
                 {/* Logo centrado */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 bg-white rounded-full shadow-lg p-3">
-                    <img src={logoImage} alt="Logo" className="w-20 h-20 object-contain rounded-full" />
+                    <img src={logoImage} alt="Logo de la empresa Silpaza" className="w-20 h-20 object-contain rounded-full" />
                 </div>
 
-                {/* Menú móvil */}
-                <div className="md:hidden ml-auto">
-                    <button>☰</button>
-                </div>
             </div>
         </header>
     );

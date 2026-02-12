@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Welcome() {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-pink-500 px-4">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#a91f46] px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
                 Bienvenido a mi App
             </h1>
@@ -12,12 +12,12 @@ export default function Welcome() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/login">
-                    <button className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition">
+                    <button className="px-6 py-3 bg-white font-bold text-[#0D579C] rounded-lg shadow hover:text-blue-800 transition-all">
                         Iniciar Sesión
                     </button>
                 </Link>
                 <Link to="/register">
-                    <button className="px-6 py-3 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+                    <button className="px-6 py-3 bg-white font-bold text-[#296A2D] rounded-lg shadow hover:text-green-800 transition-all">
                         Registrarse
                     </button>
                 </Link>

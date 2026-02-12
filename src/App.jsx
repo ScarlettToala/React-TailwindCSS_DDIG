@@ -20,17 +20,18 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/home" /> : <Welcome />} />
+        {/*Si el usuario no esta logueado y quiere ver rutas protegidas lo manda a welcome para iniciar sesión o registrarse y si ha iniciado sesión no podrá ver welcome */}
+        <Route path="/" element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} /> 
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
-        <Route path="/sobrenosotros" element={<SobreNosotros />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/sobrenosotros" element={user ? <SobreNosotros/> : <Navigate to="/" /> } />
+        <Route path="/productos"  element={<Productos user={user} setUser={setUser} />} />
+        <Route path="/servicios" element={<Servicios/>} />
         <Route
           path="/home"
-          element={user ? <Home user={user} setUser={setUser} /> : <Navigate to="/" />}
+          element={<Home user={user} setUser={setUser} />} 
         />
-        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Producto from "../components/productoItem.jsx";
 import Audio from "../components/AudioPlayer.jsx";
 import Video from "../components/VideoPlayer.jsx";
+import Footer from "../components/footer.jsx";
 
 /* Importaciones de recursos */
 import tarta from "../assets/img/tartaDeChocolate.webp";
@@ -15,7 +16,7 @@ import audioOgg from '../assets/audio/AudioMC.ogg';
 import videoMp4 from '../assets/video/Video.mp4';
 import videoWebm from '../assets/video/Video.webm';
 
-function Productos({ setUser }) {
+function Productos({ user, setUser  }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -31,6 +32,7 @@ function Productos({ setUser }) {
         logoImage={logoImage}
         info={info}
         onLogout={handleLogout}
+        user={user}
       />
 
       {/* Sección Multimedia */}
@@ -72,7 +74,7 @@ function Productos({ setUser }) {
             alt="Es una trata de chocolate realizada con productos de kilometraje 0."
             name="Tarta de Chocolate"
             description1="Deliciosa tarta de chocolate con cobertura de trufa"
-            alergenos={[{ nombre: "Gluten" }, { nombre: "Leche" }]}
+            alergenos={[{ nombre: "Gluten" }, { nombre: "Leche" }, { nombre: "Soja" }]}
             colorFondo="amarillo"
           />
 
@@ -81,7 +83,13 @@ function Productos({ setUser }) {
             image={volteado}
             name="Volteado de Piña"
             description1="Bizcocho esponjoso de piña con cobertura suave"
-            alergenos={[{ nombre: "Gluten" }, { nombre: "Leche" }]}
+            alergenos={
+              [
+                { nombre: "Gluten" }, 
+                { nombre: "Leche" },
+                { nombre: "Huevos" }
+              ]
+            }
             colorFondo="rosa"
           />
 
@@ -115,7 +123,7 @@ function Productos({ setUser }) {
           className="w-full md:w-96"
         />
       </section>
-
+      <Footer logo={logoImage} />
     </div>
   );
 }

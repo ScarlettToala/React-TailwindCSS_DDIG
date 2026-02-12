@@ -1,6 +1,9 @@
 // 📁 src/components/Register.jsx
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import HeaderLogIn from "../components/headerLogIn";
+import Footer from "../components/footer";
+import logoImage from '../assets/logoo.webp';
 
 const countries = [
     "Argentina", "Bolivia", "Brasil", "Chile", "Colombia",
@@ -61,112 +64,118 @@ const Register = ({ setUser }) => {
     };
 
     const handleRegister = (e) => {
-    e.preventDefault();
-    
-    // Validar el formulario antes de guardar
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-        setErrors(validationErrors);
-        setSuccess(false);
-        return;
-    }
+        e.preventDefault();
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+        // Validar el formulario antes de guardar
+        const validationErrors = validateForm();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            setSuccess(false);
+            return;
+        }
 
-    if (users.some(u => u.email === formData.email)) {
-        alert("Usuario ya existe");
-        return;
-    }
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Guardar solo los datos importantes
-    const newUser = {
-        email: formData.email,
-        password: formData.password,
-        name: formData.name,
-        country: formData.country,
-        phone: formData.phone,
-        photo: formData.photo ? URL.createObjectURL(formData.photo) : null
+        if (users.some(u => u.email === formData.email)) {
+            alert("Usuario ya existe");
+            return;
+        }
+
+        // Guardar solo los datos importantes
+        const newUser = {
+            email: formData.email,
+            password: formData.password,
+            name: formData.name,
+            country: formData.country,
+            phone: formData.phone,
+            photo: formData.photo ? URL.createObjectURL(formData.photo) : null
+        };
+
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("userData", JSON.stringify(newUser));
+        setUser(newUser);
+        setSuccess(true);
+        navigate("/home");
     };
-
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("userData", JSON.stringify(newUser));
-    setUser(newUser);
-    setSuccess(true);
-    navigate("/home");
-};
 
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-400 to-teal-500">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
-                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Registro</h2>
-                <form onSubmit={handleRegister} className="space-y-4">
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Email:</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                        />
-                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                    </div>
+        <>
+            {/* HEADER */}
+            <HeaderLogIn logoImage={logoImage} className="m-4" />
+            <div className="flex flex-col items-center justify-start min-h-screen pt-5 pb-8 px-4 overflow-auto">
+                <div className="bg-[#FAEDCD] p-8 rounded-lg shadow-lg w-full max-w-lg border-[#E6D7A9]">
+                    <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Registro</h2>
+                    <form onSubmit={handleRegister} className="space-y-4">
 
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Contraseña:</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                        />
-                        {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
-                    </div>
 
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Confirmar Contraseña:</label>
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                        />
-                        {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
-                    </div>
-
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Nombre:</label>
+                        <label className="block text-gray-700 font-medium mb-1" htmlFor="name">Nombre:</label>
                         <input
                             type="text"
                             name="name"
+                            placeholder="Escriba su nombre"
+                            id="name"
                             value={formData.name}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
                         />
                         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                    </div>
 
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">País:</label>
+                        <label className="block text-gray-700 font-medium mb-1" htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Escriba su correo"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required
+                            className="w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
+                        />
+                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+
+                        <label className="block text-gray-700 font-medium mb-1" htmlFor="password">Contraseña:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Escriba su contraseña"
+                            id="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required
+                            className="w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
+                        />
+                        {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+
+                        <label className="block text-gray-700 font-medium mb-1" htmlFor="confirmPassword">Confirmar Contraseña:</label>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Confirme su contraseña"
+                            id="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required
+                            className="w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
+                        />
+                        {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
+
+                        <label className="block text-gray-700 font-medium mb-1" htmlFor="country">País:</label>
                         <select
                             name="country"
+                            id="country"
+                            placeholder="Seleccione su país"
                             value={formData.country}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
                         >
                             <option value="">Seleccione un país</option>
                             {countries.map(country => (
@@ -174,53 +183,76 @@ const Register = ({ setUser }) => {
                             ))}
                         </select>
                         {errors.country && <p className="text-red-500 text-sm mt-1">{errors.country}</p>}
-                    </div>
 
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Teléfono:</label>
+                        <label className="block text-gray-700 font-medium mb-1" htmlFor="phone">Teléfono:</label>
                         <input
                             type="tel"
                             name="phone"
+                            placeholder="Escriba su número de teléfono"
+                            id="phone"
                             value={formData.phone}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             maxLength={9}
                             required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="w-full px-4 py-2 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A4133C]"
                         />
                         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-                    </div>
 
-                    <div>
-                        <label className="block text-gray-700 font-medium mb-1">Foto:</label>
-                        <input
-                            type="file"
-                            name="photo"
-                            accept="image/*"
-                            onChange={handlePhotoChange}
-                            required
-                            className="w-full"
-                        />
-                    </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors"
-                    >
-                        Registrarse
-                    </button>
+                        <label className="block text-gray-700 font-medium mb-2" htmlFor="photo">
+                            Foto
+                        </label>
 
-                    {success && <p className="text-green-600 text-center mt-2">¡Registro exitoso! ✅</p>}
+                        <div className="flex items-center gap-3">
 
-                    <p className="mt-4 text-center text-gray-600">
-                        ¿Ya tienes cuenta?{" "}
-                        <Link to="/login" className="text-green-500 font-semibold hover:underline">
-                            Inicia sesión
-                        </Link>
-                    </p>
-                </form>
+                            {/* Botón personalizado */}
+                            <label
+                                htmlFor="photo"
+                                className="cursor-pointer bg-[#F480AD] hover:bg-[#e66b9a] text-black px-4 py-2 rounded-lg shadow transition font-medium"
+                            >
+                                📁 Seleccionar archivo
+                            </label>
+
+                            {/* Texto dinámico */}
+                            <span className="text-sm text-gray-600">
+                                {formData.photo ? formData.photo.name : "Ningún archivo seleccionado"}
+                            </span>
+
+                            {/* Input oculto */}
+                            <input
+                                type="file"
+                                name="photo"
+                                id="photo"
+                                accept="image/*"
+                                onChange={handlePhotoChange}
+                                className="hidden"
+                            />
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="w-full bg-[#A4133C] text-white py-2 rounded-lg 
+                         hover:bg-[#C72A55] transition-all shadow-md font-semibold"
+                        >
+                            Registrarse
+                        </button>
+
+                        {success && <p className="text-green-600 text-center mt-2">¡Registro exitoso! </p>}
+
+                        <p className="mt-4 text-center text-[#770e2b] ">
+                            ¿Ya tienes cuenta?{" "}
+                            <Link to="/login" className="text-[#770e2b] font-semibold hover:underline">
+                                Inicia sesión
+                            </Link>
+                        </p>
+                    </form>
+                </div>
             </div>
-        </div>
+             {/* FOOTER */}
+      <Footer logo={logoImage} />
+        </>
     );
 };
 
