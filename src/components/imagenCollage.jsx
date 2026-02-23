@@ -1,3 +1,5 @@
+import { useNavigate, Link } from "react-router-dom";
+
 function ImagenCollage({ image1, image2, image3, name1, name2, name3 }) {
   return (
     <div className="px-4 py-6">
@@ -34,9 +36,14 @@ function ImagenCollage({ image1, image2, image3, name1, name2, name3 }) {
         </div>
       </div>
 
-      <div className="text-right mt-3 italic font-semibold cursor-pointer text-black">
-        Ver más
-      </div>
+<div className="flex justify-end mt-3">
+  <Link 
+    to="/productos"
+    className="italic font-semibold text-black hover:underline transition"
+  >
+    Ver más
+  </Link>
+</div>
     </div>
   );
 }

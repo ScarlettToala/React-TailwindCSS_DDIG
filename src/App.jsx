@@ -8,6 +8,7 @@ import SobreNosotros from "./pages/SobreNosotros";
 import "./App.css";
 import Servicios from "./pages/Servicios";
 import Productos from "./pages/Productos";
+import DetalleProducto from "./pages/DetalleProducto";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function App() {
         <Route path="/sobrenosotros" element={user ? <SobreNosotros/> : <Navigate to="/" /> } />
         <Route path="/productos"  element={<Productos user={user} setUser={setUser} />} />
         <Route path="/servicios" element={<Servicios/>} />
+        <Route path="/detalleProducto" element={<DetalleProducto user={user} setUser={setUser} />} />
         <Route
           path="/home"
           element={<Home user={user} setUser={setUser} />} 

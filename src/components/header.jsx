@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
+import { FaInfoCircle } from "react-icons/fa";
 
 export default function Header({ logoImage, info, onLogout, user }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -64,8 +65,8 @@ export default function Header({ logoImage, info, onLogout, user }) {
 
         {/* Iconos derecha (desktop) */}
         <div className="hidden md:flex space-x-6 items-center">
-          <img src={info} alt="Info" className="w-8 h-8 cursor-pointer" />
-          
+          {/*<img src={info} alt="Info" className="w-8 h-8 cursor-pointer" />*/}
+          <FaInfoCircle className="text-xl text-black hover:text-white transition cursor-pointer" />
           {user ? (
           <button
             onClick={handleLogoutConfirm} // <--- Usamos la función con confirmación
