@@ -32,6 +32,7 @@ function App() {
           path="/home"
           element={<Home user={user} setUser={setUser} />} 
         />
+        <Route path="*" element={<PaginaError />} />
       </Routes>
     </Router>
   );

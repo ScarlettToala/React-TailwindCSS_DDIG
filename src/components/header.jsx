@@ -45,7 +45,7 @@ export default function Header({ logoImage, info, onLogout, user }) {
   }
 
   return (
-    <header className="bg-[#F480AD] text-white shadow-md px-10 py-7 relative">
+    <header className="bg-[#F480AD] text-white shadow-md px-7 py-7 relative">
       <div className="container mx-auto flex items-center justify-between">
 
         {/* Navegación izquierda (desktop) */}
@@ -78,7 +78,7 @@ export default function Header({ logoImage, info, onLogout, user }) {
                             hover:after:w-full transition">Cerrar sesión</span>
           </button>
           ) : (
-          <Link to="/login" className="hover:font-bold transition">Iniciar sesión</Link>
+          <Link to="/login" className="hover:font-bold transition text-black">Iniciar sesión</Link>
           )
           }
         </div>
