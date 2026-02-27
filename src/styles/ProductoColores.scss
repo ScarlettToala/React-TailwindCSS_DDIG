@@ -1,0 +1,38 @@
+// ProductoColores.scss
+@import './_variables';
+
+.producto-amarillo {
+  background-color: $producto-amarillo-fondo;
+
+  h3 { color: $producto-amarillo-titulo; }
+  p { color: $producto-amarillo-texto; }
+  .alergenos { color: $producto-amarillo-alergenos; }
+  .pedido { color: $producto-amarillo-pedido; }
+}
+
+.producto-rosa {
+  background-color: $producto-rosa-fondo;
+
+  h3 { color: $producto-rosa-titulo; }
+  p { color: $producto-rosa-texto; }
+  .alergenos { color: $producto-rosa-alergenos; }
+  .pedido { color: $producto-rosa-pedido; }
+}
+
+.producto-marron {
+  background-color: $producto-marron-fondo;
+
+  h3 { color: $producto-marron-titulo; }
+  p { color: $producto-marron-texto; }
+  .alergenos { color: $producto-marron-alergenos; }
+  .pedido { color: $producto-marron-pedido; }
+}
+
+.producto-verde {
+  background-color: $producto-verde-fondo;
+
+  h3 { color: $producto-verde-titulo; }
+  p { color: $producto-verde-texto; }
+  .alergenos { color: $producto-verde-alergenos; }
+  .pedido { color: $producto-verde-pedido; }
+}

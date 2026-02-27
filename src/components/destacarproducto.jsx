@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
+import galletas from '../assets/galletas.webp'
 
-function Destacado({ backgroundImage, frase }) {
+
+function Destacado({ backgroundImage, frase, descripcion }) {
     return (
         <div className="w-full bg-[#E9EDC9] flex flex-col items-center px-4 py-8 md:py-12">
             {/* Título principal */}
@@ -13,11 +16,13 @@ function Destacado({ backgroundImage, frase }) {
 
                 {/* Imagen */}
                 {backgroundImage && (
-                    <img
-                        src={backgroundImage}
-                        alt="Producto Destacado"
-                        className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-lg shadow-lg"
-                    />
+                    <Link to="/productos">
+                        <img
+                            src={galletas}
+                            alt="Galletas artesanales"
+                            className="w-full max-w-sm md:max-w-md rounded-lg shadow-lg hover:scale-105 transition duration-300"
+                        />
+                    </Link>
                 )}
 
                 {/* Texto */}
@@ -26,14 +31,14 @@ function Destacado({ backgroundImage, frase }) {
                         {frase}
                     </h3>
                     <p className="text-gray-700 text-base sm:text-lg mb-4">
-                        Este es un producto destacado que te encantará. Puedes agregar aquí una descripción más detallada.
+                        {descripcion}
                     </p>
-                    <a
-                        href="#"
+                    <Link
+                        to="/detalleProducto"
                         className="inline-block px-6 py-2 bg-[#AE043D] text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 transition-colors duration-300"
                     >
                         Ver más
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
