@@ -49,3 +49,36 @@ $producto-verde-pedido: #003300;
 
 // Tipografía
 $font-principal: 'Open Sans', sans-serif;
+
+// ================= PRODUCTOS =================
+
+$productos: (
+  amarillo: (
+    fondo: #f8df7e,
+    titulo: #3b2f0b,
+    texto: #4b3b00,
+    alergenos: #7C1513,
+    pedido: #014370
+  ),
+  rosa: (
+    fondo: #A2064C,
+    titulo: #ffffff,
+    texto: #f1f1f1,
+    alergenos: #F8F4ED,
+    pedido: #DDFFDC
+  ),
+  marron: (
+    fondo: #7F411A,
+    titulo: #ffffff,
+    texto: #f5f5f5,
+    alergenos: #FDF3D8,
+    pedido: #000000
+  ),
+  verde: (
+    fondo: #c2cf70,
+    titulo: #1f2f0a,
+    texto: #3b4b0a,
+    alergenos: #4B044E,
+    pedido: #003300
+  )
+);

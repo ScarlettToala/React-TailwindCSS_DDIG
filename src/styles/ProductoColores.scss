@@ -1,38 +1,27 @@
-// ProductoColores.scss
-@import './_variables';
+//@import './variables';
+@use './variables' as var;
 
-.producto-amarillo {
-  background-color: $producto-amarillo-fondo;
 
-  h3 { color: $producto-amarillo-titulo; }
-  p { color: $producto-amarillo-texto; }
-  .alergenos { color: $producto-amarillo-alergenos; }
-  .pedido { color: $producto-amarillo-pedido; }
-}
+@each $nombre, $colores in var.$productos {
 
-.producto-rosa {
-  background-color: $producto-rosa-fondo;
+  .producto-#{$nombre} {
+    background-color: map-get($colores, fondo);
 
-  h3 { color: $producto-rosa-titulo; }
-  p { color: $producto-rosa-texto; }
-  .alergenos { color: $producto-rosa-alergenos; }
-  .pedido { color: $producto-rosa-pedido; }
-}
+    h3 {
+      color: map-get($colores, titulo);
+    }
 
-.producto-marron {
-  background-color: $producto-marron-fondo;
+    p {
+      color: map-get($colores, texto);
+    }
 
-  h3 { color: $producto-marron-titulo; }
-  p { color: $producto-marron-texto; }
-  .alergenos { color: $producto-marron-alergenos; }
-  .pedido { color: $producto-marron-pedido; }
-}
+    .alergenos {
+      color: map-get($colores, alergenos);
+    }
 
-.producto-verde {
-  background-color: $producto-verde-fondo;
+    .pedido {
+      color: map-get($colores, pedido);
+    }
+  }
 
-  h3 { color: $producto-verde-titulo; }
-  p { color: $producto-verde-texto; }
-  .alergenos { color: $producto-verde-alergenos; }
-  .pedido { color: $producto-verde-pedido; }
 }
