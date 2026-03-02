@@ -21,9 +21,9 @@ function Footer({ logo }) {
   }
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo">
       <div className="footer-container">
-
+    
         {/* Navegación */}
         <nav className="footer-nav" aria-label="Enlaces del pie de página">
           <Link to="/sobrenosotros">Sobre Nosotros</Link>

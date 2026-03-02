@@ -1,5 +1,5 @@
 //@import './variables';
-@use './variables' as var;
+@use './_variables' as var;
 
 
 @each $nombre, $colores in var.$productos {

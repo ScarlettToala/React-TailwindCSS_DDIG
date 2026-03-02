@@ -1,10 +1,19 @@
 // Footer.scss
 //@import './variables';
-@use './variables' as var;
+@use './_variables' as var;
 
 .footer {
-  background-color: var.$color-primario;
-  color: var.$color-texto;
+
+  @if var.$modo-oscuro {
+    background-color: var.$color-fondo-oscuro;
+    color: var.$color-blanco;
+  }
+
+  @else {
+    background-color: var.$color-primario;
+    color: var.$color-texto;
+  }
+
   padding: 2rem 1rem;
   font-family: var.$font-principal;
 
@@ -23,7 +32,16 @@
       gap: 0.75rem;
 
       a {
-        color: var.$color-texto;
+        @if var.$modo-oscuro {
+          background-color: var.$color-fondo-oscuro;
+          color: var.$color-blanco;
+        }
+
+        @else {
+          background-color: var.$color-primario;
+          color: var.$color-texto;
+        }
+
         font-weight: 600;
         text-decoration: none;
 
@@ -32,7 +50,11 @@
           display: block;
           height: 2px;
           width: 0;
-          background: var.$color-blanco;
+          @if var.$modo-oscuro {
+          background-color: var.$color-blanco;
+          }else{
+          background-color: var.$color-texto;
+          }
           transition: width 0.3s ease;
         }
 
@@ -48,7 +70,17 @@
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
-      background: var.$color-blanco;
+
+      @if var.$modo-oscuro {
+        background-color: var.$color-fondo-oscuro;
+        color: var.$color-blanco;
+      }
+
+      @else {
+        background-color: var.$color-primario;
+        color: var.$color-texto;
+      }
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -79,6 +111,7 @@
 
         a {
           transition: color 0.3s ease;
+
           &:hover {
             color: var.$hover-icono;
           }
@@ -95,13 +128,13 @@
 // Tablet (min-width: 768px)
 @media(min-width: 768px) {
   .footer .footer-container {
-    flex-direction: row;
+    flex-direction: row; // passa a fila
     justify-content: space-between;
     text-align: left;
     gap: 2rem;
 
     .footer-nav {
-      flex-direction: row;
+      flex-direction: row; // links en fila
       gap: 1.5rem;
     }
 

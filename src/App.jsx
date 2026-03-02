@@ -9,6 +9,7 @@ import "./App.css";
 import Servicios from "./pages/Servicios";
 import Productos from "./pages/Productos";
 import DetalleProducto from "./pages/DetalleProducto";
+import PaginaError from "./pages/PaginaError";
 
 function App() {
   const [user, setUser] = useState(null);

@@ -1,5 +1,5 @@
 //@import './variables';
-@use './variables' as var;
+@use './_variables' as var;
 
 .producto {
   font-family: var.$font-principal;
@@ -14,7 +14,7 @@
   // Contenedor interno
   .producto-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; // Mobile first: una columna
     gap: 1.5rem;
     align-items: center;
 
